@@ -33,10 +33,10 @@ jobs:
           script: |
             docker pull ${{ secrets.DOCKER_USERNAME }}/dme-backend:latest
 
-            docker stop dme_backend || true
-            docker rm dme_backend || true
+             docker stop dme-backend || true
+             docker rm dme-backend || true
 
             docker run -d --restart unless-stopped \
               -p 5000:5000 \
-              --name dme_backend \
+              --name dme-backend \
               ${{ secrets.DOCKER_USERNAME }}/dme-backend:latest
